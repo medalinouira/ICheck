@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="ICheck"
+             x:Class="ICheck.Views.HomeView"
+             xmlns:ex="clr-namespace:ICheck.Extensions"
+             BindingContext="{Binding Home, Source={StaticResource Locator}}">
+
+    <ContentPage.Content>
+
+        <Grid RowSpacing="1"
+              ColumnSpacing="1"
+              Padding="12,0,12,0"              
+              BackgroundColor="White"
+              VerticalOptions="FillAndExpand"
+              HorizontalOptions="FillAndExpand">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label FontSize="17"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   TextDecorations="Underline"
+                   HorizontalTextAlignment="Center"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand"                     
+                   Style="{StaticResource LbGrayStyle}"
+                   Text="Contrôlez vos achats même quand vous êtes dépensier !"  />
+
+            <Grid Grid.Row="1"
+                  Padding="10"
+                  Grid.Column="0"
+                  BackgroundColor="#7E1335">
+
+                <Image HeightRequest="60"
+                       Source="{ex:ImageResource Key=ic_products.png, Resource=AppResources.Assets}"/>
+
+                <Label Text="Produits"
+                       VerticalOptions="EndAndExpand"
+                       HorizontalOptions="StartAndExpand"
+                       Style="{StaticResource LbWhiteStyle}"/>
+
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding OnGridTapCommand}" CommandParameter="0"/>
+                </Grid.GestureRecognizers>
+
+            </Grid>
+
+            <Grid Grid.Row="1"
+                  Padding="10"
+                  Grid.Column="1"
+                  BackgroundColor="#23282d">
+
+                <Image HeightRequest="60"
+                       Source="{ex:ImageResource Key=ic_orders.png, Resource=AppResources.Assets}"/>
+
+                <Label Text="Achat"
+                       VerticalOptions="EndAndExpand"
+                       HorizontalOptions="StartAndExpand"
+                       Style="{StaticResource LbWhiteStyle}"/>
+
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding Path=OnGridTapCommand}" CommandParameter="1"/>
+                </Grid.GestureRecognizers>
+            </Grid>
+
+            <Grid Grid.Row="2"
+                  Padding="10"
+                  Grid.Column="0"
+                  BackgroundColor="#23282d">
+                
+                <Image HeightRequest="60"
+                       Source="{ex:ImageResource Key=ic_history.png, Resource=AppResources.Assets}"/>
+
+                <Label Text="Historique"
+                       VerticalOptions="EndAndExpand"
+                       HorizontalOptions="StartAndExpand"
+                       Style="{StaticResource LbWhiteStyle}"/>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding Path=OnGridTapCommand}" CommandParameter="2"/>
+                </Grid.GestureRecognizers>
+
+
+            </Grid>
+
+            <Grid Grid.Row="2"
+                  Padding="10"
+                  Grid.Column="1"
+                  BackgroundColor="#7E1335">
+
+                <Image HeightRequest="60"
+                       Source="{ex:ImageResource Key=ic_alert.png, Resource=AppResources.Assets}"/>
+
+                <Label Text="Alertes"
+                       VerticalOptions="EndAndExpand"
+                       HorizontalOptions="StartAndExpand"
+                       Style="{StaticResource LbWhiteStyle}"/>
+                
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding Path=OnGridTapCommand}" CommandParameter="3"/>
+                </Grid.GestureRecognizers>
+
+            </Grid>
+
+            <Grid Grid.Row="3"
+                  Padding="10"
+                  Grid.Column="0"
+                  BackgroundColor="#7E1335">
+
+                <Image HeightRequest="60"
+                       Source="{ex:ImageResource Key=ic_contacts.png, Resource=AppResources.Assets}"/>
+
+                <Label Text="Contacts"
+                       VerticalOptions="EndAndExpand"
+                       HorizontalOptions="StartAndExpand"
+                       Style="{StaticResource LbWhiteStyle}"/>
+
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding Path=OnGridTapCommand}" CommandParameter="4"/>
+                </Grid.GestureRecognizers>
+
+            </Grid>
+
+            <Grid Grid.Row="3"
+                  Padding="10"
+                  Grid.Column="1"
+                  BackgroundColor="#23282d">
+
+                <Image HeightRequest="60"
+                       Source="{ex:ImageResource Key=ic_about.png, Resource=AppResources.Assets}"/>
+
+                <Label Text="A propos"
+                       VerticalOptions="EndAndExpand"
+                       HorizontalOptions="StartAndExpand"
+                       Style="{StaticResource LbWhiteStyle}"/>
+
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding Path=OnGridTapCommand}" CommandParameter="5"/>
+                </Grid.GestureRecognizers>
+
+            </Grid>
+
+            <Label Grid.Row="4"
+                   Grid.ColumnSpan="2"
+                   VerticalOptions="EndAndExpand"
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="CenterAndExpand"
+                   Text="{Binding Path=CopyRightsText}"                       
+                   Style="{StaticResource LbGrayStyle}"/>
+
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

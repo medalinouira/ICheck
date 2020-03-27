@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Produits"
+             x:Class="ICheck.Views.ProductsView"
+             xmlns:ex="clr-namespace:ICheck.Extensions"
+             BindingContext="{Binding Products, Source={StaticResource Locator}}">
+    
+    <ContentPage.Content>
+
+        <ListView HasUnevenRows="true"
+                  Margin="1,1,1,1"
+                  BackgroundColor="White"
+                  SeparatorVisibility="None"
+                  ItemsSource="{Binding Path=Products, Mode=TwoWay}"
+                  ItemTemplate="{StaticResource ProductItemTemplate}">
+
+        </ListView>
+
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:ICheck.ViewModels"
+             xmlns:ex="clr-namespace:ICheck.Extensions"
+             mc:Ignorable="d"
+             x:Class="ICheck.App">
+    <Application.Resources>
+
+        <!-- Application resource dictionary -->
+        <ResourceDictionary>
+
+            <!-- ViewModelLocator -->
+            <vm:ViewModelLocator x:Key="Locator" />
+
+            <Style x:Key="LbWhiteStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="15" />
+                <Setter Property="TextColor" Value="#FFFFFF" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+            </Style>
+
+            <Style x:Key="LbGrayStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Small"/>
+                <Setter Property="Margin" Value="0,7,0,7"/>
+                <Setter Property="TextColor" Value="#23282d"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+
+            <Style x:Key="BtnPink" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#7E1335"/>
+                <Setter Property="HeightRequest" Value="60"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+
+            <Style x:Key="BtnGray" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#23282d"/>
+                <Setter Property="HeightRequest" Value="60"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+
+            <ControlTemplate x:Key="ICheckTemplate">
+
+                <StackLayout VerticalOptions="FillAndExpand">
+
+                    <StackLayout x:Name="stlHeader" 
+                                HeightRequest="90"
+                                BackgroundColor="#23282d"
+                                Orientation="Horizontal">
+
+                        <Image x:Name="imgLogo"                    
+                               Source="{ex:ImageResource Key=ic_orders.png}"/>
+
+                        <StackLayout x:Name="stlDetails" 
+                                     VerticalOptions="Center">
+
+                            <Label x:Name="lbTitle"
+                                   Style="{StaticResource LbWhiteStyle}"
+                                   Text="Xamarin.Forms.Toolkit.Extensions"/>
+
+                            <Label x:Name="lbDescription"
+                                   Font="Bold"
+                                   Style="{StaticResource LbWhiteStyle}"
+                                   Text="Extensions for Xamarin.Forms"/>
+
+                        </StackLayout>
+
+                    </StackLayout>
+
+                    <ContentPresenter VerticalOptions="FillAndExpand"/>
+
+                    <Label Text="Copyright © Mohamed Ali NOUIRA. All rights reserved."
+                           VerticalOptions="EndAndExpand"
+                           Style="{StaticResource LbGrayStyle}"/>
+
+                </StackLayout>
+
+            </ControlTemplate>
+
+            <DataTemplate x:Key="ProductItemTemplate">
+
+                <ViewCell>
+
+                    <Grid Margin="0,0,0,1"
+                          ColumnSpacing="1">
+                        
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="8*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid BackgroundColor="#7E1335">
+                            <Image Source="{ex:ImageResource Key=ic_products.png, Resource=AppResources.Assets}"/>
+                        </Grid>
+                        
+                        <StackLayout Grid.Column="1"
+                                     Padding="15,10" 
+                                     BackgroundColor="#23282d"
+                                     VerticalOptions="FillAndExpand"
+                                     HorizontalOptions="FillAndExpand">
+
+                            <Label Text="{Binding Name}" 
+                                   Style="{StaticResource LbWhiteStyle}"/>
+
+                            <Label Text="{Binding PriceAsString}" 
+                                   Style="{StaticResource LbWhiteStyle}"/>
+
+                        </StackLayout>
+                        
+                    </Grid>
+
+                </ViewCell>
+
+            </DataTemplate>
+
+            <DataTemplate x:Key="OrderItemTemplate">
+
+                <ViewCell>
+
+                    <Grid Margin="0,0,0,1"
+                          ColumnSpacing="1">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="8*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid BackgroundColor="#7E1335">
+                            <Image Source="{ex:ImageResource Key=ic_orders.png, Resource=AppResources.Assets}"/>
+                        </Grid>
+
+                        <StackLayout Grid.Column="1"
+                                     Padding="15,10" 
+                                     BackgroundColor="#23282d"
+                                     VerticalOptions="FillAndExpand"
+                                     HorizontalOptions="FillAndExpand">
+
+                            <Label Text="{Binding Label}" 
+                                   Style="{StaticResource LbWhiteStyle}"/>
+
+                            <Label Text="{Binding Date}" 
+                                   Style="{StaticResource LbWhiteStyle}"/>
+
+                            <Label Text="{Binding TotalPrice}" 
+                                   Style="{StaticResource LbWhiteStyle}"/>
+
+                        </StackLayout>
+
+                    </Grid>
+
+                </ViewCell>
+
+            </DataTemplate>
+
+        </ResourceDictionary>
+        
+    </Application.Resources>
+</Application>
